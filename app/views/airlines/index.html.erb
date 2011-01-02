@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag 'table' %>
+<h1>Listing of Built Itineraries</h1>
+
+<table class="sample">
+  <tr>
+    <th>From:</th>
+    <th>To:</th>
+    <th>Departure</th>
+    <th>Return</th>
+    <th>Passenger(s)</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+<% @airlines.each do |airline| %>
+
+  <tr class="<%= cycle("even", "odd") %>">
+    <td><%= airline. flyFrom %></td>
+    <td><%= airline.flyTo %></td>
+    <td><%= airline.departureOnThe %>
+    <%= airline.departureDaySection %></td>
+    <td><%= airline.returnOnThe %>
+    <%= airline.returnDaySection %></td>
+    <td ALIGN="center"><%= airline.passengersToBoard %></td>
+    <td class="even"><%= link_to 'Show', airline %></td>
+    <td class="even"><%= link_to 'Edit', edit_airline_path(airline) %></td>
+    <td class="even"><%= link_to 'Destroy', airline, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Airline', new_airline_path %>

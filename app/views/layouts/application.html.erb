@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <TITLE><%=  @pagetitle || (@page && @page.title) || "Carnegie Mellon Silicon Valley" %></TITLE>
+		<%= stylesheet_link_tag 'main' %>
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", "jquery.rails.js" %>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+		<script>
+		  $(document).ready(function() {
+			$( "#airline_departureOnThe" ).datepicker({ minDate: -0, maxDate: "+1Y, +11M" });
+			$( "#airline_returnOnThe" ).datepicker({ minDate: -0, maxDate: "+1Y, +11M" });
+			// I also restric manual input on the model 
+			//:with => /[2][0][1][1-2]-[0-9]{2}-[0-9]{2}/,   							
+		  });
+		</script>
+		<%= csrf_meta_tag %>
+
+   </HEAD>
+   <BODY>
+	<div id='pagewrapper'>
+		<div id='header'>
+			<p>Carnegie Mellon Silicon Valley Projects</p>			
+		</div>
+		<div id='navbar'>
+			<ul>
+			<li><%= link_to 'Home', outside_viewerLinkeage_path( 'home' ) %></li>
+			
+			<li><%= link_to 'CMUDiagnostic', outside_viewerLinkeage_path( 'airlines' ) %></li>
+			<li><%= link_to 'About Diagnostic', outside_viewerLinkeage_path( 'about' ) %></li>
+			<li><%= link_to 'Contact', outside_viewerLinkeage_path( 'contact' ) %></li>
+			<div id="user_nav">
+			  <% if user_signed_in? %>
+			    Signed in as <%= current_user.email %>. Not you?
+			    <%= link_to " Sign out", destroy_user_session_path %>
+			  <% else %>
+			    <%= link_to " Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+			  <% end %>
+			</div>
+			</ul>
+			
+	</div>
+	<div id= 'content'>
+      <%= yield %>
+	</div>
+	<div id='footer'>
+		<p>Yuri Costa | coxaqui@gmail.com</p>
+	</div>
+	
+	
+   </BODY>
+</HTML>

@@ -1,0 +1,50 @@
+<% if flash[:notice] == nil %>
+<%flash[:notice] = "Please make changes as needed up to 24hs before your flight. (not checking yet)"%>
+<%end%>
+<%= stylesheet_link_tag 'table' %>
+
+<p id="notice"><%= notice %></p>
+
+
+<table class="sample">
+	
+<tr>
+<td><b>Fly From:</b></td>
+<td><%= @airline. flyFrom %></td>
+</tr>
+
+<tr>
+<td><b>Fly to:</b></td>
+<td><%= @airline.flyTo %></td>
+</tr>
+
+<tr>
+<td><b>Departure:</b></td>
+<td><%= @airline.departureOnThe.strftime("%B")%>
+	<%=@airline.departureOnThe.day%>
+	<%=@airline.departureOnThe.year%></td>
+<td><%= @airline.departureDaySection %></td>
+</tr>
+
+
+<tr>
+<td><b>Return:</b></td>
+<td><%= @airline.returnOnThe.strftime("%B")%> 
+	<%=@airline.returnOnThe.day%>
+	<%=@airline.returnOnThe.year%></td>
+ <td><%= @airline.returnDaySection %></td>
+</tr>
+
+<tr>
+<td><b>Passengers:</b></td>
+<td><%= @airline.passengersToBoard %></td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<%= link_to 'Edit', edit_airline_path(@airline) %> |
+<%= link_to 'Back', airlines_path %>

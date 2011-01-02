@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+   flyFrom: MyString
+  flyTo: MyString
+  departureOnThe: 2010-12-31
+  departureDaySection: MyString
+  returnDaySection: MyString
+  returnOnThe: 2010-12-31
+  passengersToBoard: 1
+
+two:
+   flyFrom: MyString
+  flyTo: MyString
+  departureOnThe: 2010-12-31
+  departureDaySection: MyString
+  returnDaySection: MyString
+  returnOnThe: 2010-12-31
+  passengersToBoard: 1

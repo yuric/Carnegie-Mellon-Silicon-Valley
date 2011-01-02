@@ -1,0 +1,50 @@
+<%= stylesheet_link_tag 'table' %>
+<%= form_for(@airline) do |f| %>
+  <% if @airline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@airline.errors.count, "error") %> prohibited this airline from being saved:</h2>
+
+      <ul>
+      <% @airline.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table class="sample">
+
+	<tr>
+	<td><%= f.label :fly_From %></b></td>
+	<td><%= f.text_field :flyFrom %></td>
+	</tr>
+
+	<tr>
+	<td><%= f.label :fly_To %></td>
+	<td><%= f.text_field :flyTo %></td>
+	</tr>
+	
+	<tr>
+	  <td><%= f.label :departure %></td>
+	  <td><%= f.text_field :departureOnThe %></td>
+	  <td><%= f.select :departureDaySection, options_for_select(Airline::DAYPERIOD) %></td>
+	</tr>
+	
+	<tr>
+	  <td><%= f.label :return %></td>
+	  <td><%= f.text_field :returnOnThe %></td>
+	  <td><%= f.select :returnDaySection, options_for_select(Airline::DAYPERIOD) %></td>
+	</tr>
+	
+	<tr>
+	  <td><%= f.label :passengers %></td>
+	  <td><%= f.select :passengersToBoard, (1..10) %></td>
+	</tr>
+	
+	
+</table>
+
+<br />
+  <div class="actions">
+	<%= f.submit "Create Itinerary" %>
+  </div>
+<% end %>
