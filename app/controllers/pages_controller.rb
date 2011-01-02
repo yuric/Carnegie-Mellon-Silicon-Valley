@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   before_filter:loadmetadata
-  before_filter:authenticate_user!, :except => [:show, :index]
+  #before_filter:authenticate_user!, :except => [:show, :index] # this was allowing delete as well
+  before_filter:authenticate_user!    # uncomment to lock intere site
+  
   def loadmetadata
     @pagetitle = "Page Administration"
   end
