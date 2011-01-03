@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110101012703) do
+ActiveRecord::Schema.define(:version => 20110103111557) do
 
   create_table "airlines", :force => true do |t|
     t.string   "flyFrom"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(:version => 20110101012703) do
     t.string   "returnDaySection"
     t.date     "returnOnThe"
     t.integer  "passengersToBoard"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "your_name"
+    t.text     "your_comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
