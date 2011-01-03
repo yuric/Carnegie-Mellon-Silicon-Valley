@@ -1,8 +1,7 @@
 class AirlinesController < ApplicationController
-  before_filter:authenticate_user!    # uncomment to lock intere site
-  
+  before_filter:authenticate_user!    # uncomment to lock intere site  
   # GET /airlines
-  # GET /airlines.xml
+  # GET /airlines.xml  
   def index
     @airlines = Airline.all
 

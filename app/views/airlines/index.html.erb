@@ -1,8 +1,8 @@
-<%= stylesheet_link_tag 'table' %>
+<%= stylesheet_link_tag 'form' %>
 <h1>Listing of Built Itineraries</h1>
 
-<table class="sample">
-  <tr>
+<table>
+  <tr class="first">
     <th>From:</th>
     <th>To:</th>
     <th>Departure</th>
@@ -23,9 +23,9 @@
     <td><%= airline.returnOnThe %>
     <%= airline.returnDaySection %></td>
     <td ALIGN="center"><%= airline.passengersToBoard %></td>
-    <td class="even"><%= link_to 'Show', airline %></td>
-    <td class="even"><%= link_to 'Edit', edit_airline_path(airline) %></td>
-    <td class="even"><%= link_to 'Destroy', airline, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', airline %></td>
+    <td><%= link_to 'Edit', edit_airline_path(airline) %></td>
+    <td><%= link_to 'Destroy', airline, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

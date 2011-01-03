@@ -6,12 +6,11 @@ class Airline < ActiveRecord::Base
     
   validates :departureOnThe, :returnOnThe, :format => {
     :with => /[2][0][1][1-2]-[0-9]{2}-[0-9]{2}/,
-    :message => 'field did not validate. NOTE All itinerary dates must a Valid Date between 2011 and 2012.' 
+    :message => 'field did not validate. NOTE All itinerary dates must be a Valid Date between 2011 and 2012.' 
      }
-  DAYPERIOD = ['Anytime', 'Morning', 'Afternoon', 'Evening', 'Late Night']
-      
+  DAYPERIOD = ['Anytime', 'Morning', 'Afternoon', 'Evening', 'Late Night']      
   def validate
-     errors.add_to_base "Your date cannot be validated" if departureOnThe.blank? || returnOnThe.blank?
+     errors.add_to_base "Your date(s) cannot be validated" if departureOnThe.blank? || returnOnThe.blank?
   end
   
   

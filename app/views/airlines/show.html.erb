@@ -8,17 +8,19 @@
 
 <table class="sample">
 	
-<tr>
+<tr class="even">
 <td><b>Fly From:</b></td>
 <td><%= @airline. flyFrom %></td>
+<td></td>
 </tr>
 
-<tr>
+<tr class="odd">
 <td><b>Fly to:</b></td>
 <td><%= @airline.flyTo %></td>
+<td></td>
 </tr>
 
-<tr>
+<tr class="even">
 <td><b>Departure:</b></td>
 <td><%= @airline.departureOnThe.strftime("%B")%>
 	<%=@airline.departureOnThe.day%>
@@ -27,7 +29,7 @@
 </tr>
 
 
-<tr>
+<tr class="odd">
 <td><b>Return:</b></td>
 <td><%= @airline.returnOnThe.strftime("%B")%> 
 	<%=@airline.returnOnThe.day%>
@@ -35,9 +37,10 @@
  <td><%= @airline.returnDaySection %></td>
 </tr>
 
-<tr>
+<tr class="even">
 <td><b>Passengers:</b></td>
 <td><%= @airline.passengersToBoard %></td>
+<td></td>
 </tr>
 
 </table>
