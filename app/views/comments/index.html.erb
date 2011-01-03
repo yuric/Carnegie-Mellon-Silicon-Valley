@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag 'form' %>
+
+<h1>Getting in touch</h1>
+<p><b>Email coxaqui@gmail.com or leave a comment.</b> You may comment without being logged in for now</p>
+<table>
+<% @comments.each do |comment| %>
+  <tr>
+    <td><b><%= comment.id %>. Author: <%= comment.your_name %></b><br/></td>
+  </tr>
+  <tr class="odd">
+    <td><%= comment.your_comment %></td>
+    <td><%= link_to 'Show', comment %></td>
+    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Comment', new_comment_path %>
