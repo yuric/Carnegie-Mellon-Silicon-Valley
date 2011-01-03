@@ -65,7 +65,7 @@ CMUSiliconValley::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   #root :to => "pages#landing"         #REAL ROOT 
-  root :to => "airlines#new"#debug root
+  root :to => "airlines#index"#debug root
   
   # See how all your routes lay out with "rake routes"
 

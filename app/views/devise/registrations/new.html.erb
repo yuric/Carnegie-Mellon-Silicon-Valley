@@ -4,7 +4,7 @@
 	<p><% %><h2>Sorry, you cannot sign up at this time</h2>
 	<% end %>
 		
-<% if CMUSiliconValley::Application::CAN_CREATE_USERS || %>
+<% if CMUSiliconValley::Application::CAN_CREATE_USERS %>
 	<%= form_for(resource_name, resource, :url => registration_path(resource_name)) do |f| %>
 	  <p><%= f.label :username %></p>
 	  <p><%= f.text_field :username %></p>
