@@ -18,7 +18,9 @@ class Airline < ActiveRecord::Base
   def is_in_the_past? 
    departureOnThe > returnOnThe  
   end
-  
+  def validate
+     errors.add_to_base "That was tricky!!! Sorry cannot do that." if number_of_passangers?
+  end
   def number_of_passangers? 
    passengersToBoard > 1 || passengersToBoard < 11 
   end

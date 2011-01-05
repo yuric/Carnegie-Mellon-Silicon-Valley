@@ -2,7 +2,8 @@
 to the actual host(domain name root) at development.rb file.
 02- Now we need to validate the dates in case user types random numeric chars: use regex or other form
 
-03- CLarifying hour block when individuals leave. 
+03- CLarifying hour block when individuals leave.
+04- Add proper validation to #of passagers 
 
 <li><%= link_to 'CMUDiagnostic', outside_viewerLinkeage_path( 'CMUDiagnostic' ) %></li>
 class="<%= cycle("even", "odd") %>"
