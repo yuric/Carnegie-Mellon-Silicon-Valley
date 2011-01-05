@@ -33,14 +33,12 @@ class Airline < ActiveRecord::Base
     if(departureOnThe && departureOnThe < Date.today)
       errors.add(:departureOnThe," is in the past") if returnOnThe
     end
+    
     if (returnOnThe && returnOnThe < Date.today)
       errors.add(:returnOnThe, "is in the past") if departureOnThe 
     end
     
-    #If the same day is selected need to make sure the time periods do not overlap
-    if (returnOnThe && departureOnThe && returnOnThe < Date.today)
-      errors.add(:returnOnThe, "is in the past") if departureOnThe 
-    end
+
     
     #if (returnOnThe && departureOnThe && returnOnThe == departureOnThe && SAMEDAY[departureDaySection] == 0 || SAMEDAY[returnDaySection] == 0 )
     #  errors.add(:returnOnThe, "You're good") if departureOnThe 
