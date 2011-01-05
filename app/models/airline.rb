@@ -3,7 +3,8 @@
 class Airline < ActiveRecord::Base
   validates :flyFrom, :flyTo, :departureDaySection, :returnDaySection, :passengersToBoard, :presence => true
   validate :has_not_occurred
-    
+  validate :number_of_passangers
+
   validates :departureOnThe, :returnOnThe, :format => {
     :with => /[2][0][1][1-2]-[0-9]{2}-[0-9]{2}/,
     :message => 'field did not validate. NOTE All itinerary dates must be a Valid Date between 2011 and 2012.' 
@@ -14,9 +15,12 @@ class Airline < ActiveRecord::Base
   end
   
   
-  
   def is_in_the_past? 
    departureOnThe > returnOnThe  
+  end
+  
+  def number_of_passangers? 
+   passengersToBoard > 1 || passengersToBoard < 11 
   end
   
   def has_not_occurred 
