@@ -16,7 +16,7 @@ class Airline < ActiveRecord::Base
   
   
   def is_in_the_past? 
-   departureOnThe >= returnOnThe  
+   departureOnThe > returnOnThe  
   end
   
   def has_not_occurred 
