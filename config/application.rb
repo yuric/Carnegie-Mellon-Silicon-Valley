@@ -8,7 +8,7 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module CMUSiliconValley
   class Application < Rails::Application
     
-    CAN_CREATE_USERS = false # set this to true to allow new users to sign in
+    CAN_CREATE_USERS = true # set this to true to allow new users to sign in
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

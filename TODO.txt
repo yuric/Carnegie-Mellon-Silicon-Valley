@@ -4,6 +4,13 @@ to the actual host(domain name root) at development.rb file.
 
 03- CLarifying hour block when individuals leave.
 04- Add proper validation to #of passagers 
+05- mention the javascript hack in my code
+
+javascript:document.getElementById('airline_passengersToBoard').options[10]=new Option('1.9');document.getElementById('airline_passengersToBoard').value='1.9';document.forms[0].submit()
+
+
+javascript:document.getElementById('airline_passengersToBoard').options[10]=new Option('12');document.getElementById('airline_passengersToBoard').value='2.9';document.forms[0].submit()
+
 
 <li><%= link_to 'CMUDiagnostic', outside_viewerLinkeage_path( 'CMUDiagnostic' ) %></li>
 class="<%= cycle("even", "odd") %>"
