@@ -3,7 +3,7 @@
 class Airline < ActiveRecord::Base
   validates :flyFrom, :flyTo, :departureDaySection, :returnDaySection, :passengersToBoard, :presence => true
   validate :has_not_occurred
-  validate :number_of_passangers
+  #validate :number_of_passangers
 
   validates :departureOnThe, :returnOnThe, :format => {
     :with => /[2][0][1][1-2]-[0-9]{2}-[0-9]{2}/,
@@ -14,20 +14,29 @@ class Airline < ActiveRecord::Base
      errors.add_to_base "Your date(s) cannot be validated" if departureOnThe.blank? || returnOnThe.blank?
   end
   
-  
   def is_in_the_past? 
    departureOnThe > returnOnThe  
-  end
-  def validate
-     errors.add_to_base "That was tricky!!! Sorry cannot do that." if number_of_passangers?
-  end
-  def number_of_passangers? 
-   passengersToBoard > 1 || passengersToBoard < 11 
   end
   
   def has_not_occurred 
     errors.add("return", "date should be on or after departure date.") if departureOnThe && returnOnThe && is_in_the_past?
   end
+  
+  
+  
+  
+  
+  
+  
+  def validate
+     errors.add_to_base "That was tricky!!! Passageres must be an INT between 1 and 10" if number_of_passangers?
+  end
+  
+  def number_of_passangers? 
+   passengersToBoard < 1 || passengersToBoard > 10
+  end
+  
+  
   
 
     
