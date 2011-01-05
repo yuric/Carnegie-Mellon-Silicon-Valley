@@ -11,8 +11,8 @@
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 		<script>
 		  $(document).ready(function() {
-			$( "#airline_departureOnThe" ).datepicker({ minDate: -0, maxDate: "+1Y, +11M" });
-			$( "#airline_returnOnThe" ).datepicker({ minDate: -0, maxDate: "+1Y, +11M" });
+			$( "#airline_departureOnThe" ).datepicker({ minDate: -0, maxDate: "+1Y, +11M",dateFormat: 'yy-mm-dd' });
+			$( "#airline_returnOnThe" ).datepicker({ minDate: -0, maxDate: "+1Y, +11M",dateFormat: 'yy-mm-dd' });
 			// I also restric manual input on the model 
 			//:with => /[2][0][1][1-2]-[0-9]{2}-[0-9]{2}/,   							
 		  });

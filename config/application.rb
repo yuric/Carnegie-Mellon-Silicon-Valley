@@ -9,7 +9,6 @@ module CMUSiliconValley
   class Application < Rails::Application
     
     CAN_CREATE_USERS = false # set this to true to allow new users to sign in
-    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

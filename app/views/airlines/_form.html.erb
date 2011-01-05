@@ -12,7 +12,6 @@
     </div>
   <% end %>
 <table class="sample">
-
 	<tr class="even">
 	<td><%= f.label :fly_From %></b></td>
 	<td><%= f.text_field :flyFrom %></td>
@@ -28,15 +27,14 @@
 	<tr class="even">
 	  <td><%= f.label :departure %></td>
 	  <td><%= f.text_field :departureOnThe %></td>
-	  <td><%= f.select :departureDaySection, options_for_select(Airline::DAYPERIOD) %></td>
+	  <td><%= f.select :departureDaySection, options_for_select(Airline::DAYPERIOD, @airline.departureDaySection) %></td>
 	</tr>
 	
 	<tr class="odd">
 	  <td><%= f.label :return %></td>
 	  <td><%= f.text_field :returnOnThe %></td>
-	  <td><%= f.select :returnDaySection, options_for_select(Airline::DAYPERIOD) %></td>
+	  <td><%= f.select :returnDaySection, options_for_select(Airline::DAYPERIOD, @airline.returnDaySection) %></td>
 	</tr>
-	
 	<tr class="even">
 	  <td ><%= f.label :passengers %></td>
 	  <td><%= f.select :passengersToBoard, (1..10) %></td>
