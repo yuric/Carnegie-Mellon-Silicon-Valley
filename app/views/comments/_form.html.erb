@@ -13,7 +13,11 @@
 
   <div class="field">
     <%= f.label :your_name %><br />
-    <%= f.text_field :your_name %>
+ 	<% if current_user %>
+    	<%= f.text_field :your_name, :value => current_user.username || "Guest" %>
+	<%else%>
+		<%= f.text_field :your_name, :value => "Guest" %>
+	<%end%>
   </div>
   <div class="field">
     <%= f.label :your_comment %><br />

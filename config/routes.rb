@@ -16,7 +16,9 @@ CMUSiliconValley::Application.routes.draw do
   
   match ":name" => "outside_viewer#show", :as => :outside_viewerLinkeage# ORIGINAL HOME 
   
-  match "/CMUDiagnostic" => 'airlines#show', :as => :CMUDiagnostic  
+  match "/CMUDiagnostic" => 'airlines#show', :as => :CMUDiagnostic
+  
+  #match '*' => redirect('/')
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -8,9 +8,9 @@ class Airline < ActiveRecord::Base
     :message => 'is not properly formated. NOTE All itinerary dates must be a Valid Date between 2011 and 2012.' 
      }
      
-  DAYPERIOD = ['Anytime','Morning: [5 am - Noon]','Afternoon: [Noon - 4 pm]','Evening: [4 pm - 7 pm]','Late Night: [8 pm - 5 am]' ]  
+  DAYPERIOD = ['Anytime','Morning: [5a-12p]','Afternoon: [12p-5p]','Evening: [5p-9p]','Late Night: [9p-12a]' ]  
   #DAYPERIOD = [ ['Anytime', 0 ], ['Morning: [5 am - Noon]', 1], ['Afternoon: [Noon - 4 pm]', 2], ['Evening:   [4 pm - 7 pm]', 3], ['Late Night: [8 pm - 5 am]', 4]]  
-  SAMEDAY = {'Anytime' => 0, 'Morning: [5 am - Noon]' => 1, 'Afternoon: [Noon - 4 pm]' => 2, 'Evening: [4 pm - 7 pm]' => 3, 'Late Night: [8 pm - 5 am]' => 4}
+  SAMEDAY = {'Anytime' => 0, 'Morning: [5a-12p]' => 1, 'Afternoon: [12p-5p]' => 2, 'Evening: [5p-9p]' => 3, 'Late Night: [9p-12a]' => 4}
   # puts pop['France'];   
   #def validate
    #  errors.add_to_base "Your date(s) cannot be validated" if departureOnThe.blank? || returnOnThe.blank?
@@ -27,7 +27,7 @@ class Airline < ActiveRecord::Base
   end
   
   def has_not_occurred# There are 2 types of errors for most fields so I highlight the field or the label depedantly
-    errors.add("return", "date should be on or after departure date.") if departureOnThe && returnOnThe && is_in_the_past?
+    errors.add("return", "date should be on or after Departure date.") if departureOnThe && returnOnThe && is_in_the_past?
     
     #makes sure the dates are not in the past
     if(departureOnThe && departureOnThe < Date.today)
@@ -48,7 +48,7 @@ class Airline < ActiveRecord::Base
     if (returnOnThe && departureOnThe && returnOnThe == departureOnThe && SAMEDAY[departureDaySection] != 0 && SAMEDAY[returnDaySection] != 0)
       
       if( SAMEDAY[returnDaySection] < SAMEDAY[departureDaySection] )
-        errors.add(:returnOnThe, " time block incorrect. You can fly in the same day but you still need to Depart before you return. ") if departureOnThe 
+        errors.add(:returnOnThe, " time block incorrect. You can fly in the same day but you still need to Depart before you Return. ") if departureOnThe 
       
       end
       
