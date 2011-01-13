@@ -53,6 +53,14 @@ class Airline < ActiveRecord::Base
       end
       
     end
+    # If return is morning but departure is anytime.
+    if (returnOnThe && departureOnThe && returnOnThe == departureOnThe && SAMEDAY[departureDaySection] == 0 && SAMEDAY[returnDaySection] == 1)
+      
+        errors.add(:departureOnThe, " time block incorrect. If you want to return in the morning of the same day you MUST depart in the morning. ") if departureOnThe 
+            
+    end
+    
+    
   end
   
   # Validate number of passangers
