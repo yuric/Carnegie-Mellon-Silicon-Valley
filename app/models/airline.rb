@@ -2,7 +2,7 @@ class Airline < ActiveRecord::Base
   validates :flyFrom, :flyTo, :departureDaySection, :returnDaySection, :passengersToBoard, :presence => true
   validate :has_not_occurred
   #validate :number_of_passangers
-
+  attr_accessible  :flyFrom, :flyTo, :departureDaySection, :returnDaySection, :passengersToBoard
   validates :departureOnThe, :returnOnThe, :format => {
     :with => /[2][0][1][1-2]-[0-9]{2}-[0-9]{2}/,
     :message => 'is not properly formated. NOTE All itinerary dates must be a Valid Date between 2011 and 2012.' 
